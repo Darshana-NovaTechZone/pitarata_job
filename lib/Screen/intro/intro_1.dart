@@ -32,14 +32,14 @@ class _IntroOnePageState extends State<IntroOnePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: black,
       body: Column(children: [
         SizedBox(height: MediaQuery.of(context).size.height / 6),
 
-        // if (image != null)
+      
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 100),
-          // child: Image.asset('assets/app-logo.png'),
+       
           child: Lottie.asset('assets/intro_1.json'),
         ),
         SizedBox(height: MediaQuery.of(context).size.height / 6),

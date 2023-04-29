@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pitarata_job/Screen/welcom/welcom.dart';
 import 'package:pitarata_job/color/colors.dart';
 
@@ -36,7 +37,7 @@ class _IntroThreePageState extends State<IntroThreePage> {
         SizedBox(height: MediaQuery.of(context).size.height / 6),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 100),
-          child: Image.asset('assets/app-logo.png'),
+          child: Lottie.asset('assets/intro_3.json'),
         ),
         SizedBox(height: MediaQuery.of(context).size.height / 6),
         Text(

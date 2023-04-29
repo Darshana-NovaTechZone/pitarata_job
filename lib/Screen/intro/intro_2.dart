@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pitarata_job/Screen/intro/intro_3.dart';
 import 'package:pitarata_job/color/colors.dart';
 import '../../widget/arrow_button.dart';
@@ -27,7 +28,7 @@ class _IntroTwoPageState extends State<IntroTwoPage> {
         SizedBox(height: MediaQuery.of(context).size.height / 6),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 100),
-          child: Image.asset('assets/app-logo.png'),
+          child: Lottie.asset('assets/intro_2.json'),
         ),
         SizedBox(height: MediaQuery.of(context).size.height / 6),
         const Padding(

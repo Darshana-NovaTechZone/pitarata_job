@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:pitarata_job/Screen/name_screen/name_screen.dart';
 import 'package:pitarata_job/color/colors.dart';
+import 'package:pitarata_job/widget/radius_button.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -25,21 +25,17 @@ class WelcomePage extends StatelessWidget {
                 color: Colors.white, fontFamily: 'Viga', fontSize: 27)),
         Expanded(
           child: TextButton(
-            onPressed: () {},
-            child: Container(
-              alignment: Alignment.center,
-              height: 70,
-              width: 150,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20), color: Fontgreen),
-              child: Text("Let's do this",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Comfortaa-VariableFont_wght',
-                      fontSize: 17)),
-            ),
-          ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NameScreen()),
+                );
+              },
+              child: RadiusButton(
+                height: 70,
+                text: "Let's do this",
+                width: 150,
+              )),
         ),
       ]),
     );
