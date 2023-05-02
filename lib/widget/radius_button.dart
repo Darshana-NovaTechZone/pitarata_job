@@ -23,7 +23,7 @@ class RadiusButton extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color: Fontgreen),
+          borderRadius: BorderRadius.circular(20), color: font_green),
       child: Text(text,
           textAlign: TextAlign.center,
           style: TextStyle(

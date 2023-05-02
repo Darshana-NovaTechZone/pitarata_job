@@ -41,7 +41,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: light_dark,
+      backgroundColor: black,
       body: Padding(
         padding: const EdgeInsets.all(40.0),
         child: Stack(

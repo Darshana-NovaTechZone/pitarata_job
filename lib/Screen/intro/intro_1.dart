@@ -58,7 +58,7 @@ class _IntroOnePageState extends State<IntroOnePage> {
                     MaterialPageRoute(builder: (context) => IntroTwoPage()),
                   );
                 },
-                child: ArrowButton()),
+                child: ArrowButton(icons:  Icons.arrow_forward_ios_rounded,)),
           ),
         )
       ]),

@@ -34,7 +34,7 @@ class _IntroTwoPageState extends State<IntroTwoPage> {
         const Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
-              ' Find your dream job easily with Pita Rata obs.We bring together ob postiongs from around the world, across all industries and job categories.',
+              ' Find your dream job easily with Pita Rata Jobs.We bring together ob postiongs from around the world, across all industries and job categories.',
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.white, fontFamily: 'Viga', fontSize: 27)),
@@ -49,7 +49,7 @@ class _IntroTwoPageState extends State<IntroTwoPage> {
                     MaterialPageRoute(builder: (context) => IntroThreePage()),
                   );
                 },
-                child: ArrowButton()),
+                child: ArrowButton(icons:  Icons.arrow_forward_ios_rounded,)),
           ),
         )
       ]),

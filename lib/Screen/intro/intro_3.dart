@@ -55,7 +55,9 @@ class _IntroThreePageState extends State<IntroThreePage> {
                     MaterialPageRoute(builder: (context) => WelcomePage()),
                   );
                 },
-                child: ArrowButton()),
+                child: ArrowButton(
+                  icons: Icons.arrow_forward_ios_rounded,
+                )),
           ),
         )
       ]),

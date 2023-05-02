@@ -10,12 +10,12 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 4),
         child: TextField(
           decoration: InputDecoration(
               prefixIcon: Icon(
                 Icons.person,
-                color: Background_green,
+                color: background_green,
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15.0),
