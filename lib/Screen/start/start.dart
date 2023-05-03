@@ -43,6 +43,8 @@ class _StartState extends State<Start> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: RadiusButton(
+                colortext: white,
+                color: font_green,
                 text: 'Login to my account',
                 width: 230,
                 height: 60,

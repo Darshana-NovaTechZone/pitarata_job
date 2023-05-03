@@ -5,14 +5,15 @@ import 'package:pitarata_job/color/colors.dart';
 import 'package:pitarata_job/widget/custom_text.dart';
 
 class CustomList extends StatelessWidget {
-  const CustomList({super.key});
+  const CustomList({super.key, required this.cat});
+  final List cat;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 80,
       child: ListView.builder(
-          itemCount: 10,
+          itemCount: cat.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
@@ -32,7 +33,7 @@ class CustomList extends StatelessWidget {
                     ),
                   ),
                   CustomText(
-                      text: "All",
+                      text: cat[index],
                       fontSize: 15,
                       fontFamily: 'Viga',
                       color: white,

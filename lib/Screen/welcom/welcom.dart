@@ -32,6 +32,8 @@ class WelcomePage extends StatelessWidget {
                 );
               },
               child: RadiusButton(
+                color: font_green,
+                colortext: white,
                 height: 70,
                 text: "Let's do this",
                 width: 150,

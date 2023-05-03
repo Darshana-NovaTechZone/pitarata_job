@@ -26,90 +26,111 @@ class _NameScreenState extends State<NameScreen> {
       backgroundColor: black,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: CustomText(
-                fontWeight: FontWeight.normal,
-                color: white,
-                text: 'Login to your account',
-                fontSize: 25,
-                fontFamily: 'Viga'),
-          ),
-          SizedBox(height: MediaQuery.of(context).size.height / 10),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 60),
-            child: Lottie.asset('assets/login_screen.json'),
-          ),
-          CustomTextField(
-            hintText: 'email address',
-          ),
-          CustomTextField(
-            hintText: 'password',
-          ),
-          Align(
-              alignment: Alignment.centerRight,
-              child: CustomText(
-                color: Colors.white54,
-                fontWeight: FontWeight.normal,
-                fontFamily: 'Comfortaa-VariableFont_wght',
-                fontSize: 13,
-                text: 'Reset my password',
-              )),
-          SizedBox(
-            height: 10,
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
-              );
-            },
-            child: RadiusButton(
-              text: 'LOGIN',
-              width: 200,
-              height: 60,
-            ),
-          ),
-          Expanded(
-            child: Container(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                    alignment: Alignment.center,
-                    child: SizedBox(
-                      width: 400,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "I don't have an account.",
-                            style: TextStyle(
-                                color: font_green,
-                                fontFamily: 'Comfortaa-VariableFont_wght'),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => NameScreenOne()),
-                              );
-                            },
-                            child: Text(
-                              "Create a new account",
-                              style: TextStyle(
-                                  color: font_green,
-                                  fontFamily: 'Comfortaa-VariableFont_wght',
-                                  decoration: TextDecoration.underline),
-                            ),
-                          )
-                        ],
+        child: SingleChildScrollView(
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Stack(children: [
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 50),
+                    child: CustomText(
+                        fontWeight: FontWeight.normal,
+                        color: white,
+                        text: 'Login to your account',
+                        fontSize: 25,
+                        fontFamily: 'Viga'),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height / 10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 60),
+                    child: Lottie.asset('assets/login_screen.json'),
+                  ),
+                  CustomTextField(
+                    hintText: 'email address',
+                  ),
+                  CustomTextField(
+                    hintText: 'password',
+                  ),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: CustomText(
+                        color: Colors.white54,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'Comfortaa-VariableFont_wght',
+                        fontSize: 13,
+                        text: 'Reset my password',
+                      )),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
+              ),
+              Positioned(
+                bottom: 0,
+                right: 0,
+                left: 0,
+                child: Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        );
+                      },
+                      child: RadiusButton(color: font_green,
+                      colortext: white,
+                        text: 'LOGIN',
+                        width: 200,
+                        height: 60,
                       ),
-                    ))),
-          )
-        ]),
+                    ),
+                    Container(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                            alignment: Alignment.center,
+                            child: SizedBox(
+                              width: 400,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "I don't have an account.",
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        color: font_green,
+                                        fontFamily:
+                                            'Comfortaa-VariableFont_wght'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                NameScreenOne()),
+                                      );
+                                    },
+                                    child: Text(
+                                      "Create a new account",
+                                      style: TextStyle(
+                                          color: font_green,
+                                          fontFamily:
+                                              'Comfortaa-VariableFont_wght',
+                                          decoration: TextDecoration.underline),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )))
+                  ],
+                ),
+              )
+            ]),
+          ),
+        ),
       ),
     );
   }

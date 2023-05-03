@@ -39,12 +39,15 @@ class _IntroThreePageState extends State<IntroThreePage> {
           padding: const EdgeInsets.symmetric(horizontal: 100),
           child: Lottie.asset('assets/intro_3.json'),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height / 6),
-        Text(
-            'Our mission is to help job seekers overcome barriers to finding work abroad, including language barriers, visa processes, and unfamiliar job search methods ',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Colors.white, fontFamily: 'Viga', fontSize: 27)),
+        SizedBox(height: MediaQuery.of(context).size.height / 7),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Text(
+              'Our mission is to help job seekers overcome barriers to finding work abroad, including language barriers, visa processes, and unfamiliar job search methods ',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.white, fontFamily: 'Viga', fontSize: 27)),
+        ),
         Expanded(
           child: Container(
             alignment: Alignment.bottomRight,

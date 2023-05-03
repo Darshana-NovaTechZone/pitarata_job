@@ -22,91 +22,113 @@ class _NameScreenOneState extends State<NameScreenOne> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: black,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: Container(
-              alignment: Alignment.center,
-              child: CustomText(
-                  fontWeight: FontWeight.normal,
-                  color: white,
-                  text: " Let's create your\n brand new account",
-                  fontSize: 25,
-                  fontFamily: 'Viga'),
-            ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Stack(children: [
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 50),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: CustomText(
+                          fontWeight: FontWeight.normal,
+                          color: white,
+                          text: " Let's create your\n brand new account",
+                          fontSize: 25,
+                          fontFamily: 'Viga'),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 90),
+                    child: Lottie.asset('assets/create_new_account.json'),
+                  ),
+                  CustomTextField(
+                    hintText: 'enter your name',
+                  ),
+                  CustomTextField(
+                    hintText: 'enter your mobile number',
+                  ),
+                  CustomTextField(
+                    hintText: 'enter your email address',
+                  ),
+                  CustomTextField(
+                    hintText: 'password',
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NameScreenTwo()),
+                        );
+                      },
+                      child: RadiusButton(color: font_green,
+                      colortext: white,
+                        text: 'CREATE MY ACCOUNT',
+                        width: 230,
+                        height: 60,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                            alignment: Alignment.center,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "I already have an account.",
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      color: font_green,
+                                      fontFamily:
+                                          'Comfortaa-VariableFont_wght'),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => NameScreen()),
+                                    );
+                                  },
+                                  child: Text(
+                                    "Login to my account",
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        color: font_green,
+                                        fontFamily:
+                                            'Comfortaa-VariableFont_wght',
+                                        decoration: TextDecoration.underline),
+                                  ),
+                                )
+                              ],
+                            )))
+                  ],
+                ),
+              )
+            ]),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 90),
-            child: Lottie.asset('assets/create_new_account.json'),
-          ),
-          CustomTextField(
-            hintText: 'enter your name',
-          ),
-          CustomTextField(
-            hintText: 'enter your mobile number',
-          ),
-          CustomTextField(
-            hintText: 'enter your email address',
-          ),
-          CustomTextField(
-            hintText: 'password',
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => NameScreenTwo()),
-              );
-            },
-            child: RadiusButton(
-              text: 'CREATE MY ACCOUNT',
-              width: 230,
-              height: 60,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Expanded(
-            child: Container(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                    alignment: Alignment.center,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "I already have an account.",
-                          style: TextStyle(
-                              color: font_green,
-                              fontFamily: 'Comfortaa-VariableFont_wght'),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => NameScreen()),
-                            );
-                          },
-                          child: Text(
-                            "Login to my account",
-                            style: TextStyle(
-                                color: font_green,
-                                fontFamily: 'Comfortaa-VariableFont_wght',
-                                decoration: TextDecoration.underline),
-                          ),
-                        )
-                      ],
-                    ))),
-          )
-        ]),
+        ),
       ),
     );
   }

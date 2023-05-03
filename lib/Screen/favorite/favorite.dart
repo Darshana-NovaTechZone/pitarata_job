@@ -24,7 +24,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         leading: InkWell(
             onTap: () {
               Navigator.pop(context);
-              log('kkkkkk');
+             
             },
             child: ArrowButton(icons: Icons.arrow_back_ios_new)),
         backgroundColor: black,

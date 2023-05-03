@@ -35,19 +35,19 @@ class _IntroOnePageState extends State<IntroOnePage> {
       backgroundColor: black,
       body: Column(children: [
         SizedBox(height: MediaQuery.of(context).size.height / 6),
-
-      
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 100),
-       
           child: Lottie.asset('assets/intro_1.json'),
         ),
         SizedBox(height: MediaQuery.of(context).size.height / 6),
-        Text(
-            ' Welcome to the Pita Rata Jobs.\n The app that helps you find job opportunities abroad!',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Colors.white, fontFamily: 'Viga', fontSize: 27)),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+              ' Welcome to the Pita Rata Jobs.\n The app that helps you find job opportunities abroad!',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.white, fontFamily: 'Viga', fontSize: 27)),
+        ),
         Expanded(
           child: Container(
             alignment: Alignment.bottomRight,
@@ -58,7 +58,9 @@ class _IntroOnePageState extends State<IntroOnePage> {
                     MaterialPageRoute(builder: (context) => IntroTwoPage()),
                   );
                 },
-                child: ArrowButton(icons:  Icons.arrow_forward_ios_rounded,)),
+                child: ArrowButton(
+                  icons: Icons.arrow_forward_ios_rounded,
+                )),
           ),
         )
       ]),
