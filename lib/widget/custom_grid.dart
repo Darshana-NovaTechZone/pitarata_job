@@ -3,8 +3,9 @@ import 'package:pitarata_job/color/colors.dart';
 import 'package:pitarata_job/widget/custom_text.dart';
 
 class CustomGrid extends StatelessWidget {
-  const CustomGrid({super.key});
+  const CustomGrid({super.key, required this.row});
 
+  final bool row;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,29 +52,31 @@ class CustomGrid extends StatelessWidget {
                               color: white,
                               fontWeight: FontWeight.normal),
                         ),
-                        Container(
-                          child: Row(
-                            children: [
-                              InkWell(
-                                onTap: () {},
-                                child: Icon(
-                                  Icons.upload_sharp,
-                                  color: background_green,
+                        row
+                            ? Container(
+                                child: Row(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {},
+                                      child: Icon(
+                                        Icons.upload_sharp,
+                                        color: background_green,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: InkWell(
+                                        onTap: () {},
+                                        child: Icon(
+                                          Icons.delete_sharp,
+                                          color: red,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: InkWell(
-                                  onTap: () {},
-                                  child: Icon(
-                                    Icons.delete_sharp,
-                                    color: red,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
+                              )
+                            : Container()
                       ],
                     ),
                   ),

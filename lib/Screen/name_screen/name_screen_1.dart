@@ -18,6 +18,10 @@ class NameScreenOne extends StatefulWidget {
 }
 
 class _NameScreenOneState extends State<NameScreenOne> {
+  TextEditingController name = TextEditingController();
+  TextEditingController mobile = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,23 +47,39 @@ class _NameScreenOneState extends State<NameScreenOne> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 90),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width / 3.7),
                     child: Lottie.asset('assets/create_new_account.json'),
                   ),
                   CustomTextField(
+                    maxLength: 50,
+                    keyInput: TextInputType.text,
+                    controller: name,
                     hintText: 'enter your name',
                   ),
                   CustomTextField(
+                    maxLength: 10,
+                    keyInput: TextInputType.number,
+                    controller: mobile,
                     hintText: 'enter your mobile number',
                   ),
-                  CustomTextField(
-                    hintText: 'enter your email address',
+                  Form(
+                    autovalidateMode: AutovalidateMode.always,
+                    child: CustomTextField(
+                      maxLength: 50,
+                      keyInput: TextInputType.emailAddress,
+                      controller: email,
+                      hintText: 'enter your email address',
+                    ),
                   ),
                   CustomTextField(
+                    maxLength: 20,
+                    keyInput: TextInputType.visiblePassword,
+                    controller: password,
                     hintText: 'password',
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                 ],
               ),
@@ -71,58 +91,74 @@ class _NameScreenOneState extends State<NameScreenOne> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => NameScreenTwo()),
-                        );
+                        if (name.text.isNotEmpty &&
+                            mobile.text.isNotEmpty &&
+                            email.text.isNotEmpty &&
+                            password.text.isNotEmpty) {
+                          if (email.text.contains("@") &&
+                              email.text.contains(".")) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NameScreenTwo()));
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text("enter valid email ")));
+                          }
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("required fill all ")),
+                          );
+                        }
                       },
-                      child: RadiusButton(color: font_green,
-                      colortext: white,
+                      child: RadiusButton(
+                        color: font_green,
+                        colortext: white,
                         text: 'CREATE MY ACCOUNT',
                         width: 230,
                         height: 60,
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                        alignment: Alignment.bottomCenter,
-                        child: Container(
-                            alignment: Alignment.center,
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "I already have an account.",
-                                  style: TextStyle(
-                                      fontSize: 13,
-                                      color: font_green,
-                                      fontFamily:
-                                          'Comfortaa-VariableFont_wght'),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => NameScreen()),
-                                    );
-                                  },
-                                  child: Text(
-                                    "Login to my account",
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Container(
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                              alignment: Alignment.center,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "I already have an account.",
                                     style: TextStyle(
                                         fontSize: 13,
                                         color: font_green,
                                         fontFamily:
-                                            'Comfortaa-VariableFont_wght',
-                                        decoration: TextDecoration.underline),
+                                            'Comfortaa-VariableFont_wght'),
                                   ),
-                                )
-                              ],
-                            )))
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => NameScreen()),
+                                      );
+                                    },
+                                    child: Text(
+                                      "Login to my account",
+                                      style: TextStyle(
+                                          fontSize: 13,
+                                          color: font_green,
+                                          fontFamily:
+                                              'Comfortaa-VariableFont_wght',
+                                          decoration: TextDecoration.underline),
+                                    ),
+                                  )
+                                ],
+                              ))),
+                    )
                   ],
                 ),
               )

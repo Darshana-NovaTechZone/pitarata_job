@@ -16,6 +16,7 @@ class NameScreenTwo extends StatefulWidget {
 }
 
 class _NameScreenTwoState extends State<NameScreenTwo> {
+  TextEditingController code = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,6 +70,9 @@ class _NameScreenTwoState extends State<NameScreenTwo> {
                 child: Column(
                   children: [
                     CustomTextField(
+                      maxLength: 10,
+                      keyInput: TextInputType.number,
+                      controller: code,
                       hintText: 'enter the verfication code',
                     ),
                     SizedBox(
@@ -81,52 +85,56 @@ class _NameScreenTwoState extends State<NameScreenTwo> {
                           MaterialPageRoute(builder: (context) => Start()),
                         );
                       },
-                      child: RadiusButton(color: font_green,
-                      colortext: white,
+                      child: RadiusButton(
+                        color: font_green,
+                        colortext: white,
                         text: 'VERIFY MY ACCOUNT',
                         width: 230,
                         height: 60,
                       ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: MediaQuery.of(context).size.height / 14,
                     ),
-                    Container(
-                        alignment: Alignment.bottomCenter,
-                        child: Container(
-                            alignment: Alignment.center,
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "I already have an account.",
-                                  style: TextStyle(
-                                      fontSize: 13,
-                                      color: font_green,
-                                      fontFamily:
-                                          'Comfortaa-VariableFont_wght'),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => NameScreen()),
-                                    );
-                                  },
-                                  child: Text(
-                                    "Login to my account",
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Container(
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                              alignment: Alignment.center,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "I already have an account.",
                                     style: TextStyle(
                                         fontSize: 13,
                                         color: font_green,
                                         fontFamily:
-                                            'Comfortaa-VariableFont_wght',
-                                        decoration: TextDecoration.underline),
+                                            'Comfortaa-VariableFont_wght'),
                                   ),
-                                )
-                              ],
-                            )))
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => NameScreen()),
+                                      );
+                                    },
+                                    child: Text(
+                                      "Login to my account",
+                                      style: TextStyle(
+                                          fontSize: 13,
+                                          color: font_green,
+                                          fontFamily:
+                                              'Comfortaa-VariableFont_wght',
+                                          decoration: TextDecoration.underline),
+                                    ),
+                                  )
+                                ],
+                              ))),
+                    )
                   ],
                 ),
               ),

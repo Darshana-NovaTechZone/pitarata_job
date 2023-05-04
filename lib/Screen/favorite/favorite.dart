@@ -24,7 +24,6 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         leading: InkWell(
             onTap: () {
               Navigator.pop(context);
-             
             },
             child: ArrowButton(icons: Icons.arrow_back_ios_new)),
         backgroundColor: black,
@@ -38,7 +37,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               text: 'Favorites',
             )),
       ),
-      body: CustomGrid(),
+      body: CustomGrid(row: true),
     );
   }
 }
